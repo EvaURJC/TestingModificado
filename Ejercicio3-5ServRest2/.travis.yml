@@ -1,19 +1,21 @@
 language: java
 
+jdk:
+- oraclejdk8
+- openjdk7
+
 services:
-- mysql
+  - mysql
+  
+sudo: true
 
 before_install:
 - mysql -e 'CREATE DATABASE IF NOT EXISTS ejercicio;'
 
 install: true
 
-jdk:
-- oraclejdk8
-- openjdk7
-
+before_script:
+  - bash .travis.install-mysql-5.7.sh
+  
 script: 
 - mvn clean test
-
-deploy:
-  skip_cleanup: true
