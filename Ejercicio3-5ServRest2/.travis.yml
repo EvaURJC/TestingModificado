@@ -1,10 +1,17 @@
 language: java
 
+services:
+- mysql
+
 jdk:
 - oraclejdk8
+- openjdk7
 
-sudo: required
+sudo: 
+- required
 
-script: mvn clean verify
+script: 
+- mvn clean test
+- mvn clean verify
 
 install: true
