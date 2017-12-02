@@ -6,6 +6,8 @@ services:
 before_install:
 - mysql -e 'CREATE DATABASE IF NOT EXISTS ejercicio;'
 
+install: true
+
 jdk:
 - oraclejdk8
 - openjdk7
@@ -13,4 +15,5 @@ jdk:
 script: 
 - mvn clean test
 
-install: true
+deploy:
+  skip_cleanup: true
